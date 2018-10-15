@@ -43,16 +43,22 @@ playMove = square => {
   if (board[row][col] === -1) {
     if (curPlayer) {
       square.innerText='X';
+      document.getElementById('turn').innerText = `Player O's turn!`;
     } else {
       square.innerText='O';
+      document.getElementById('turn').innerText = `Player X's turn!`;
     }
     square.style.color='black';
     board[row][col] = curPlayer;
     if (checkWins(curPlayer)) {
       if (curPlayer) {
-        console.log('X wins!');
+        board = [['X', 'X', 'X'], ['X', 'X', 'X'],['X', 'X', 'X']];
+        document.getElementById('turn').innerText = `Player X wins!!`;
+        document.getElementById('turn').style.color = 'red';
       } else {
-        console.log('O wins!');
+        board = [['O', 'O', 'O'], ['O', 'O', 'O'],['O', 'O', 'O']];
+        document.getElementById('turn').innerText = `Player O wins!!`;
+        document.getElementById('turn').style.color = 'red';
       }
     }
     curPlayer = !curPlayer;
