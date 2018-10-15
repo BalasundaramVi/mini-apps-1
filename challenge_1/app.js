@@ -4,6 +4,8 @@ var gameOver = false;
 var squares = document.getElementsByClassName('col');
 
 var curPlayer = true;
+var playerOneWins = 0;
+var playerTwoWins = 0;
 
 for (var i = 0; i < squares.length; i++) {
   squares[i].addEventListener('click', () => {
@@ -44,10 +46,12 @@ playMove = square => {
   if (board[row][col] === -1) {
     if (curPlayer) {
       square.innerText='X';
+      square.style.cssText='background-color: lightcoral';
       remainingSpots--;
       document.getElementById('turn').innerText = `Player O's turn!`;
     } else {
       square.innerText='O';
+      square.style.cssText='background-color: lightblue';
       remainingSpots--;
       document.getElementById('turn').innerText = `Player X's turn!`;
     }
@@ -58,10 +62,14 @@ playMove = square => {
         board = [['X', 'X', 'X'], ['X', 'X', 'X'],['X', 'X', 'X']];
         document.getElementById('turn').innerText = `Player X wins!!`;
         document.getElementById('turn').style.color = 'red';
+        playerOneWins++;
+        document.getElementById('p1score').innerText = playerOneWins.toString();
       } else {
         board = [['O', 'O', 'O'], ['O', 'O', 'O'],['O', 'O', 'O']];
         document.getElementById('turn').innerText = `Player O wins!!`;
         document.getElementById('turn').style.color = 'red';
+        playerTwoWins++;
+        document.getElementById('p2score').innerText = playerTwoWins.toString();
       }
     } else if (remainingSpots === 0) {
       document.getElementById('turn').innerText = `It's a tie!`;
@@ -77,6 +85,7 @@ document.getElementById('reset').addEventListener('click', () => {
   for (var i = 0; i < squares.length; i++) {
     squares[i].innerText = 'A';
     squares[i].style.color = 'white';
+    squares[i].style.cssText='background-color: white';
     curPlayer = true;
   };
   document.getElementById('turn').style.color = 'black';
