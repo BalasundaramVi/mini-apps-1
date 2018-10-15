@@ -1,0 +1,34 @@
+{
+  "name": "challenge_1",
+  "version": "1.0.0",
+  "description": "Tic-Tac-Toe Board",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BalasundaramVi/hrsf105-mini-apps-1.git"
+  },
+  "keywords": [
+    "Tic",
+    "Tac",
+    "Toe"
+  ],
+  "author": "Vignesh Balasundaram",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BalasundaramVi/hrsf105-mini-apps-1/issues"
+  },
+  "homepage": "https://github.com/BalasundaramVi/hrsf105-mini-apps-1#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "consolidate": "^0.15.1",
+    "cors": "^2.8.4",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "mustache": "^3.0.0",
+    "path": "^0.12.7"
+  }
+}
