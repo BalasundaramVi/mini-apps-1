@@ -48,6 +48,13 @@ playMove = square => {
     }
     square.style.color='black';
     board[row][col] = curPlayer;
+    if (checkWins(curPlayer)) {
+      if (curPlayer) {
+        console.log('X wins!');
+      } else {
+        console.log('O wins!');
+      }
+    }
     curPlayer = !curPlayer;
   };
   console.log(curPlayer);
