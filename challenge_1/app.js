@@ -11,6 +11,7 @@ for (var i = 0; i < squares.length; i++) {
   })
 }
 
+var remainingSpots = 9;
 var board = [[-1, -1, -1],
              [-1, -1, -1],
              [-1, -1, -1]];
@@ -43,9 +44,11 @@ playMove = square => {
   if (board[row][col] === -1) {
     if (curPlayer) {
       square.innerText='X';
+      remainingSpots--;
       document.getElementById('turn').innerText = `Player O's turn!`;
     } else {
       square.innerText='O';
+      remainingSpots--;
       document.getElementById('turn').innerText = `Player X's turn!`;
     }
     square.style.color='black';
@@ -60,9 +63,22 @@ playMove = square => {
         document.getElementById('turn').innerText = `Player O wins!!`;
         document.getElementById('turn').style.color = 'red';
       }
+    } else if (remainingSpots === 0) {
+      document.getElementById('turn').innerText = `It's a tie!`;
+      document.getElementById('turn').style.color = 'red';
     }
     curPlayer = !curPlayer;
   };
-  console.log(curPlayer);
-  console.log(board);
 }
+
+document.getElementById('reset').addEventListener('click', () => {
+  board = [[-1, -1, -1], [-1, -1, -1], [-1, -1, -1]];
+  remainingSpots = 9;
+  for (var i = 0; i < squares.length; i++) {
+    squares[i].innerText = 'A';
+    squares[i].style.color = 'white';
+    curPlayer = true;
+  };
+  document.getElementById('turn').style.color = 'black';
+  document.getElementById('turn').innerText = "'X' Goes First!";
+});
