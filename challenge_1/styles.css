@@ -23,8 +23,13 @@ html {
   padding-top: 20px;
   border: 1px solid black;
   margin-bottom: 3px;
+  color: white;
 }
 
 .row_2 .col {
   margin-bottom: 0px;
+}
+
+.col:hover {
+  cursor: pointer;
 }
