@@ -7,6 +7,21 @@ var curPlayer = true;
 var playerOneWins = 0;
 var playerTwoWins = 0;
 
+var FirstPlayerName;
+var SecondPlayerName;
+
+var setPlayers = document.getElementById('SetPlayerNames');
+setPlayers.addEventListener('click', ()=> {
+  FirstPlayerName = document.getElementById('FirstPlayerName').value;
+  SecondPlayerName = document.getElementById('SecondPlayerName').value;
+  var names = document.getElementsByClassName('name');
+  names[0].innerText = FirstPlayerName + ': ';
+  names[1].innerText = SecondPlayerName + ': ';
+  document.getElementById('GamePage').style.cssText = 'display: block';
+  document.getElementById('turn').innerText = `${FirstPlayerName} Goes First as X's!`;
+  document.getElementById('Players').style.cssText = 'display:none';
+});
+
 for (var i = 0; i < squares.length; i++) {
   squares[i].addEventListener('click', () => {
     playMove(event.target);
@@ -48,25 +63,25 @@ playMove = square => {
       square.innerText='X';
       square.style.cssText='background-color: lightcoral';
       remainingSpots--;
-      document.getElementById('turn').innerText = `Player O's turn!`;
+      document.getElementById('turn').innerText = `${SecondPlayerName}'s turn!`;
     } else {
       square.innerText='O';
       square.style.cssText='background-color: lightblue';
       remainingSpots--;
-      document.getElementById('turn').innerText = `Player X's turn!`;
+      document.getElementById('turn').innerText = `${FirstPlayerName}'s turn!`;
     }
     square.style.color='black';
     board[row][col] = curPlayer;
     if (checkWins(curPlayer)) {
       if (curPlayer) {
         board = [['X', 'X', 'X'], ['X', 'X', 'X'],['X', 'X', 'X']];
-        document.getElementById('turn').innerText = `Player X wins!!`;
+        document.getElementById('turn').innerText = `${FirstPlayerName} wins!!`;
         document.getElementById('turn').style.color = 'red';
         playerOneWins++;
         document.getElementById('p1score').innerText = playerOneWins.toString();
       } else {
         board = [['O', 'O', 'O'], ['O', 'O', 'O'],['O', 'O', 'O']];
-        document.getElementById('turn').innerText = `Player O wins!!`;
+        document.getElementById('turn').innerText = `${SecondPlayerName} wins!!`;
         document.getElementById('turn').style.color = 'red';
         playerTwoWins++;
         document.getElementById('p2score').innerText = playerTwoWins.toString();
@@ -89,5 +104,5 @@ document.getElementById('reset').addEventListener('click', () => {
     curPlayer = true;
   };
   document.getElementById('turn').style.color = 'black';
-  document.getElementById('turn').innerText = "'X' Goes First!";
+  document.getElementById('turn').innerText = `${FirstPlayerName} Goes First as X's!`;
 });

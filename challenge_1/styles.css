@@ -4,6 +4,11 @@ html {
 body {
   font-family: Helvetica, Arial, Sans-Serif;
 }
+
+#GamePage {
+  display: none;
+}
+
 .Board {
   background-color: black;
   width: fit-content;

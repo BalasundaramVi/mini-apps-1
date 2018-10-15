@@ -6,37 +6,45 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Tic-Tac-Toe</h1>
-  <h3 id='turn'>'X' Goes First!</h3>
-  <div class='Board'>
-    <ul class='row_0 row'>
-      <div class='row_0 col_0 col' id='00'>T</div>
-      <div class='row_0 col_1 col' id='01'>I</div>
-      <div class='row_0 col_2 col' id='02'>C</div>
-    </ul>
-  
-    <ul class='row_1 row'>
-      <div class='row_1 col_0 col' id='10'>T</div>
-      <div class='row_1 col_1 col' id='11'>A</div>
-      <div class='row_1 col_2 col' id='12'>C</div>
-    </ul>
-  
-    <ul class='row_2 row'>
-      <div class='row_2 col_0 col' id='20'>T</div>
-      <div class='row_2 col_1 col' id='21'>O</div>
-      <div class='row_2 col_2 col' id='22'>E</div>
-    </ul>
+  <div id='Players'>
+    <h2>Please submit your names to begin</h2>
+    <input id='FirstPlayerName' placeholder="First Player Name">
+    <input id='SecondPlayerName' placeholder="Second Player Name">
+    <button id='SetPlayerNames'>SUBMIT</button>
   </div>
-  <div id='reset'>New Game</div>
-  <div id='scoreboard'>
-    <h4>SCORES</h4>
-    <div class='player one'>
-      <p class='p1 name'>Player 1:</p>
-      <p class='p1 score' id='p1score'>0</p>
+  <div id='GamePage'>
+    <h1>Tic-Tac-Toe</h1>
+    <h3 id='turn'>'X' Goes First!</h3>
+    <div class='Board'>
+      <ul class='row_0 row'>
+        <div class='row_0 col_0 col' id='00'>T</div>
+        <div class='row_0 col_1 col' id='01'>I</div>
+        <div class='row_0 col_2 col' id='02'>C</div>
+      </ul>
+    
+      <ul class='row_1 row'>
+        <div class='row_1 col_0 col' id='10'>T</div>
+        <div class='row_1 col_1 col' id='11'>A</div>
+        <div class='row_1 col_2 col' id='12'>C</div>
+      </ul>
+    
+      <ul class='row_2 row'>
+        <div class='row_2 col_0 col' id='20'>T</div>
+        <div class='row_2 col_1 col' id='21'>O</div>
+        <div class='row_2 col_2 col' id='22'>E</div>
+      </ul>
     </div>
-    <div class='player two'>
-      <p class='p2 name'>Player 2:</p>
-      <p class='p2 score' id='p2score'>0</p>
+    <div id='reset'>New Game</div>
+    <div id='scoreboard'>
+      <h4>SCORE:</h4>
+      <div class='player one'>
+        <p class='p1 name'>Player 1:</p>
+        <p class='p1 score' id='p1score'>0</p>
+      </div>
+      <div class='player two'>
+        <p class='p2 name'>Player 2:</p>
+        <p class='p2 score' id='p2score'>0</p>
+      </div>
     </div>
   </div>
 </body>
