@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const parser = require('body-parser');
 const morgan = require('morgan');
+const fs = require('fs');
 
 app = express();
 app.use(express.static('./client'));
@@ -16,3 +17,8 @@ console.log(`CSV istening on port ${port}...`);
 app.get('/', (req, res) => {
   res.render(path.join(__dirname, './client/index.html'));
 });
+
+app.post('/', (req, res) => {
+  console.log(req.body.data);
+  res.end();
+})
