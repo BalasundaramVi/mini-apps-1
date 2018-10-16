@@ -51,9 +51,6 @@ Generator.prototype.postData = function(data) {
   .catch(err => {
     console.log('unable to post text');
   })
-  .then(res => {
-    console.log('success');
-  })
 }
 
 Generator.prototype.formatData = function(text, callback) {
@@ -61,9 +58,9 @@ Generator.prototype.formatData = function(text, callback) {
   var cols = new Set;
   cols = Array.from(this.getKeys(obj, cols));
   var output = this.getValues(cols, obj)
-  console.log(typeof output);
   var data = {"data": output}
   callback(JSON.stringify(data));
+  document.getElementById('outputCSV').value = output;
 }
 
 var CSV_Generator = new Generator();

@@ -18,6 +18,10 @@ app.get('/', (req, res) => {
   res.render(path.join(__dirname, './client/index.html'));
 });
 
+app.get('/styles.css', (req,res) => {
+  res.sendFile(path.join(__dirname, '/client/styles.css'))
+})
+
 app.post('/', (req, res) => {
   console.log(req.body.data);
   res.end();

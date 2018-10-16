@@ -1,0 +1,30 @@
+html {
+  background: lightblue;
+}
+
+body {
+  margin: auto;
+  margin-top: 20px;
+  border: 2px solid black;
+  box-shadow: 2px 2px black;
+  width: 50%;
+  background: rgba(0, 0, 139, 0.5);
+  width: fit-content;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+h1 {
+  font-family: Helvetica, Sans-Serif;
+  color: white;
+  text-shadow: 3px 3px black;
+  text-align: center;
+}
+
+button {
+  margin: 10px;
+}
+
+textarea {
+  border-radius: 2px;
+}
