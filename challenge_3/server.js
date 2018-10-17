@@ -17,3 +17,24 @@ app.get('/compiled/src/components/app.js', (req, res) => {
 app.get('/styles.css', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/styles.css'));
 })
+
+/****************** PAGE REQUESTS ***********************/
+app.get('/homepageNext', (req, res) => {
+  res.send('F1');
+})
+
+app.get('/F1Next', (req, res) => {
+  res.send('success');
+})
+
+app.get('/F2Next', (req, res) => {
+  res.send('success');
+})
+
+app.get('/F3Next', (req, res) => {
+  res.send('success');
+})
+
+app.get('/successNext', (req, res) => {
+  res.send('success');
+})

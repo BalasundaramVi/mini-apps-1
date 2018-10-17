@@ -11,13 +11,25 @@ img {
   height:100%; 
 }
 
-h1 {
+h1, h2 {
   text-align: center;
   color: white;
   text-shadow: 2px 2px black;
 }
 
-#homepage {
+.inputs {
+  border: 2px solid black;
+  border-right: 0px solid black;
+  border-left: 0px solid black;
+  align-content: center;
+  text-align: center;
+}
+
+#success {
+  border: 0px solid black;
+}
+
+#homepage, #F1, #F2, #F3, #SuccessPage  {
   width: fit-content;
   border: 2px solid black;
   margin: 10%;
@@ -26,6 +38,12 @@ h1 {
   align-content: center;
   background-color: rgba(165, 42, 42, 0.75);
   box-shadow: 2px 2px black;
+}
+
+#F1, #F2, #F3, #SuccessPage {
+  width: 80%;
+  margin: auto;
+  margin-top: 5%;
 }
 
 #checkout {
@@ -47,4 +65,106 @@ h1 {
 
 #checkout:active {
   box-shadow: 0px 0px black;
+}
+
+.holder {
+  margin: 20px;
+}
+
+.title {
+  font-weight: 700;
+  color: white;
+  text-shadow: 1px 1px black;
+}
+
+#addressline2 {
+  display: block;
+  margin-left: 319px;
+  margin-top: 8px;
+}
+
+
+.n {
+  margin-right: 50px;
+}
+
+.e {
+  margin-right: 52px;
+}
+
+.p {
+  margin-right: 20px;
+}
+
+.street {
+  margin-right: 48px;
+}
+
+.city {
+  margin-right: 40px;
+  padding-left: 10px;
+}
+
+#city {
+  margin-left: 25px;
+  margin-right: 2px;
+}
+
+.state {
+  margin-right: 38px;
+  padding-left: 8px;
+}
+
+#state {
+  margin-left: 20px;
+  margin-right: 2px;
+}
+
+.zipcode {
+  margin-right: 40px;
+  padding-left: 5px;
+}
+
+#zipcode {
+  margin-right: 5px;
+}
+
+
+.phonenumber {
+  margin-right: 10px;
+}
+
+#phonenumber {
+  margin-right: 40px;
+}
+
+.creditcard {
+  margin-right: 20px;
+  margin-left: 30px;
+}
+
+#creditcard {
+  margin-right: 20px;
+}
+
+.expiry {
+  margin-right: 20px;
+}
+
+#expiry {
+  margin-right: 18px;
+}
+
+.CVV {
+  margin-right: 20px;
+  margin-left: 30px;
+}
+
+.billingzipcode {
+  margin-right: 20px;
+  margin-left: 0px;
+}
+
+#billingzipcode {
+  margin-right: 30px;
 }
