@@ -1,9 +1,14 @@
 const express = require('express');
 const path = require('path');
+const parser = require('body-parser');
+const morgan = require('morgan');
 
 var app = express();
 
 app.use(express.static('./public'));
+
+app.use(parser.json());
+app.use(morgan('dev'));
 
 const port = 3000;
 app.listen(port);
@@ -23,15 +28,18 @@ app.get('/homepageNext', (req, res) => {
   res.send('F1');
 })
 
-app.get('/F1Next', (req, res) => {
+app.post('/F1Next', (req, res) => {
+  console.log(req.body);
   res.send('success');
 })
 
-app.get('/F2Next', (req, res) => {
+app.post('/F2Next', (req, res) => {
+  console.log(req.body);
   res.send('success');
 })
 
-app.get('/F3Next', (req, res) => {
+app.post('/F3Next', (req, res) => {
+  console.log(req.body);
   res.send('success');
 })
 

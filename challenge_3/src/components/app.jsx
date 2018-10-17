@@ -40,9 +40,12 @@ var F2 = (props) => {
       <h1>Step 2</h1>
       <div className='inputs'>
         <h2>Please fill in your delivery information below:</h2>
-        <div className ='address holder'>
-          <span className='street title'>Street:</span>
+        <div className ='address1 holder'>
+          <span className='street1 title'>Street 1:</span>
           <input type='text' id='addressline1' placeholder='line 1'></input>
+        </div>
+        <div className ='address2 holder'>
+          <span className='street2 title'>Street 2:</span>
           <input type='text' id='addressline2' placeholder='line 2'></input>
         </div>
         <div className ='city holder'>
@@ -111,7 +114,7 @@ var SuccessPage = (props) => {
 // REQUESTS TO SERVER /////////////////////////////////
 var homepageNext = () => {
   fetch('/homepageNext', {
-    method: 'GET'
+    method: 'get'
   }).then((res) => {
     ReactDOM.render(
       <F1 />,
@@ -121,8 +124,13 @@ var homepageNext = () => {
 }
 
 var F1Next = () => {
+  var name = document.getElementById('name').value;
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
   fetch('/F1Next', {
-    method: 'GET'
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({"name": name, "email": email, "password": password})
   }).then((res) => {
     ReactDOM.render(
       <F2 />,
@@ -132,8 +140,22 @@ var F1Next = () => {
 }
 
 var F2Next = () => {
+  var street1 = document.getElementById('addressline1').value;
+  var street2 = document.getElementById('addressline2').value;
+  var city = document.getElementById('city').value;
+  var state = document.getElementById('state').value;
+  var zipcode = document.getElementById('zipcode').value;
+  var phonenumber = document.getElementById('phonenumber').value;
   fetch('/F2Next', {
-    method: 'GET'
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(
+    { "street1": street1,
+      "street2": street2,
+      "city": city,
+      "state": state,
+      "zipcode": zipcode,
+      "phonenumber": phonenumber })
   }).then((res) => {
     ReactDOM.render(
       <F3 />,
@@ -143,8 +165,18 @@ var F2Next = () => {
 }
 
 var F3Next = () => {
+  var card = document.getElementById('creditcard').value;
+  var expiry = document.getElementById('expiry').value;
+  var CVV = document.getElementById('CVV').value;
+  var billingzipcode = document.getElementById('billingzipcode').value;
   fetch('/F3Next', {
-    method: 'GET'
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(
+      { "card": card,
+        "expiry": expiry,
+        "CVV": CVV,
+        "billingzipcode": billingzipcode })
   }).then((res) => {
     ReactDOM.render(
       <SuccessPage />,
@@ -168,6 +200,6 @@ var successNext = () => {
 // RENDER THE APP TO THE DOM //////////////////////////
 
 ReactDOM.render(
-  <Homepage />,
+  <F3 />,
   document.getElementById('app')
 );
