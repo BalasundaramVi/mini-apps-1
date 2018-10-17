@@ -10,10 +10,10 @@ app.listen(port);
 console.log(`Express server listening on port ${port}...`);
 
 
-app.get('/compiled/src/index.js', (req,res) => {
-  res.sendFile(path.join(__dirname, '/compiled/src/index.js'));
-})
-
+/****************** SEND INITIAL FILES FOR MAIN PAGE ***********************/
 app.get('/compiled/src/components/app.js', (req, res) => {
   res.sendFile(path.join(__dirname, '/compiled/src/components/app.js'));
+})
+app.get('/styles.css', (req, res) => {
+  res.sendFile(path.join(__dirname, '/public/styles.css'));
 })
