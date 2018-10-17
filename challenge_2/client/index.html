@@ -9,7 +9,7 @@
   <h1>CSV FORM GENERATOR</h1>
   <div class='read-text'>
     <form>
-      <textarea id="InputText" cols="75" rows="20" placeholder="Put your text to be converted here"></textarea>
+      <textarea id="InputText" cols="75" rows="15" placeholder="Put your text to be converted here"></textarea>
     </form>
     <button class='submit' id='submitText'>submit</button>
   </div>
@@ -20,8 +20,12 @@
   </div>
   <div class="output">
     <form>
-      <textarea id="outputCSV" cols="75" rows="20" placeholder="Your output text will be displayed here"></textarea>
+      <textarea id="outputCSV" cols="75" rows="15" placeholder="Your output text will be displayed here"></textarea>
     </form>
+  </div>
+  <div class='download-file'>
+    <h3 id='downloadCSVFile'>Use the link below to download your .csv file</h3>
+    <button class='download' id='downloadFile'>Download CSV</button>
   </div>
 </body>
 <script src="app.js"></script>

@@ -32,3 +32,12 @@ postData = function(data) {
     document.getElementById('outputCSV').value = (data.text.data);
   })
 };
+
+document.getElementById('downloadFile').addEventListener('click', () => {
+  var output = document.getElementById('outputCSV').value;
+  fetch('/download', {
+    method: 'POST',
+    body: JSON.stringify({data: output}),
+    headers: {'Content-Type': 'application/json'}
+  });
+})

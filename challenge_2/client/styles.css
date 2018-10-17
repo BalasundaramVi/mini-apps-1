@@ -34,7 +34,7 @@ textarea {
   border-radius: 2px;
 }
 
-.read-file, .read-text, .output {
+.read-file, .read-text, .output, .download-file {
   background: rgba(173, 216, 230, 0.2);
   border: 1px solid white;
   padding: 5px;
@@ -53,7 +53,7 @@ input {
   color: white;
 }
 
-#addfileText {
+#addfileText, #downloadCSVFile {
   margin-left: 10px;
   font-family: Helvetica, Sans-Serif;
   color: white;

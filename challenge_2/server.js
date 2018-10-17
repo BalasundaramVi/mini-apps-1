@@ -2,8 +2,8 @@ const express = require('express');
 const path = require('path');
 const parser = require('body-parser');
 const morgan = require('morgan');
+const fs = require('file-system');
 var Generator = require('./controller');
-const fs = require('fs');
 
 app = express();
 app.use(express.static('./client'));
@@ -22,11 +22,27 @@ app.get('/', (req, res) => {
 
 app.get('/styles.css', (req,res) => {
   res.sendFile(path.join(__dirname, '/client/styles.css'))
-})
+});
 
 
 /******************** GETS THE INFORMATION ********************/
 app.post('/', (req, res) => {
   var data = new Generator(req.body);
   res.send(JSON.stringify(data));
-})
+});
+
+/*************** ALLOWS THE USER TO DOWNLOAD THE FILE ***************/
+app.post('/download', (req, res) => {
+  fs.writeFile(path.join(__dirname, `/downloads/report.csv`), req.body.data, (err) => {
+    if (err) {
+      console.log('Unable to write file');
+    }
+    res.download(path.join(__dirname, './downloads/report.csv'), 'report.csv', (err) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log('success downloading');
+      }
+    });
+  })
+});
