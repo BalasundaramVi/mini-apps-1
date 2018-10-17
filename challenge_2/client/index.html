@@ -7,13 +7,22 @@
 </head>
 <body>
   <h1>CSV FORM GENERATOR</h1>
-  <form>
-    <textarea id="InputText" cols="75" rows="20" placeholder="Put your text to be converted here"></textarea>
-  </form>
-  <button id='submit'>submit</button>
-  <form>
-    <textarea id="outputCSV" cols="75" rows="20" placeholder="Your output text will be displayed here"></textarea>
-  </form>
+  <div class='read-text'>
+    <form>
+      <textarea id="InputText" cols="75" rows="20" placeholder="Put your text to be converted here"></textarea>
+    </form>
+    <button class='submit' id='submitText'>submit</button>
+  </div>
+  <div class='read-file'>
+    <div id='addfileText'>Or add one of your files</div>
+    <input type="file" id="InputFile"/>
+    <button class='submit' id='submitFile'>Read File</button>
+  </div>
+  <div class="output">
+    <form>
+      <textarea id="outputCSV" cols="75" rows="20" placeholder="Your output text will be displayed here"></textarea>
+    </form>
+  </div>
 </body>
 <script src="app.js"></script>
 </html>
