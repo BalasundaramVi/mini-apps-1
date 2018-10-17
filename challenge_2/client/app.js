@@ -40,4 +40,18 @@ document.getElementById('downloadFile').addEventListener('click', () => {
     body: JSON.stringify({data: output}),
     headers: {'Content-Type': 'application/json'}
   });
+  fetch('/download', {
+    method: 'GET',
+  }).then(res => {
+    window.open('/download?foo=bar&xxx=yyy');
+  })
+  // }).then(res => {
+  //   return res.blob();
+  // }).then(data => {
+  //   var fr = new FileReader();
+  //   fr.readAsText(data);
+  //   fr.onload = (
+  //     console.log(fr.result)
+  //   );
+  // })
 })

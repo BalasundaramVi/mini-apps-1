@@ -37,12 +37,16 @@ app.post('/download', (req, res) => {
     if (err) {
       console.log('Unable to write file');
     }
-    res.download(path.join(__dirname, './downloads/report.csv'), 'report.csv', (err) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log('success downloading');
-      }
-    });
-  })
+  });
+  res.end();
 });
+
+app.get('/download', (req, res) => {
+  res.download(path.join(__dirname, './downloads/report.csv'), 'report.csv', (err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('success downloading');
+    }
+  });
+})
