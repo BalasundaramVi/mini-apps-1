@@ -1,0 +1,35 @@
+{
+  "name": "challenge_3",
+  "version": "1.0.0",
+  "description": "Multistep Checkout Experience with ReactJS, MongoDB, and Express (compiled with Babel)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "babel": "babel . --watch --out-dir compiled --presets=react --ignore=node_modules,compiled,server.js --source-maps inline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BalasundaramVi/hrsf105-mini-apps-1.git"
+  },
+  "keywords": [
+    "checkout"
+  ],
+  "author": "Vignesh Balasundaram",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BalasundaramVi/hrsf105-mini-apps-1/issues"
+  },
+  "homepage": "https://github.com/BalasundaramVi/hrsf105-mini-apps-1#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-react": "^1.0.0",
+    "babel-preset-react": "^6.24.1"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "path": "^0.12.7",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  }
+}
