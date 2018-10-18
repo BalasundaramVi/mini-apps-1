@@ -62,7 +62,6 @@ app.get('/homepageNext', (req, res) => {
       console.log(err);
     }
   })
-  console.log(id);
   res.send('F1');
 })
 
@@ -95,7 +94,6 @@ app.post('/F3Next', (req, res) => {
       console.log(err);
       res.send('fail');
     } else {
-      console.log(checkout);
       res.send(checkout);
     }
   })

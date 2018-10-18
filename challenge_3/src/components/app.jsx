@@ -247,7 +247,6 @@ var F3Next = () => {
       console.log('error');
       ReacttDOM.render(<Homepage />);
     } else {
-      console.log(res);
       ReactDOM.render(
         <SummaryPage
         name={res.name}
