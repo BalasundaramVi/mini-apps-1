@@ -71,3 +71,8 @@ ol {
 .red {
   background-color: red;
 }
+
+.win {
+  font-weight: 700;
+  color: black;
+}

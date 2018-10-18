@@ -212,7 +212,7 @@ export default class Game extends React.Component {
           </div>
           <Board board={this.state.board} />
         </div>
-        {this.state.gameOver ? (<div>GAME OVER - {this.state.curPlayer.toUpperCase()} WON!</div>) : <div></div>}
+        {this.state.gameOver ? (<div className='win'>GAME OVER - {this.state.curPlayer.toUpperCase()} WON!</div>) : <div></div>}
       </div>
     )
   }
