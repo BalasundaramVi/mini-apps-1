@@ -29,7 +29,7 @@ h1, h2 {
   border: 0px solid black;
 }
 
-#homepage, #F1, #F2, #F3, #SuccessPage  {
+#homepage, #F1, #F2, #F3, #summaryPage, #successPage  {
   width: fit-content;
   border: 2px solid black;
   margin: 10%;
@@ -40,7 +40,7 @@ h1, h2 {
   box-shadow: 2px 2px black;
 }
 
-#F1, #F2, #F3, #SuccessPage {
+#F1, #F2, #F3, #summaryPage, #successPage {
   width: 80%;
   margin: auto;
   margin-top: 5%;
@@ -67,14 +67,19 @@ h1, h2 {
   box-shadow: 0px 0px black;
 }
 
-.holder {
+.holder, .summary {
   margin: 20px;
 }
 
-.title {
+.title, .summary {
   font-weight: 700;
   color: white;
   text-shadow: 1px 1px black;
+}
+
+.summary {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .n {
@@ -161,7 +166,7 @@ h1, h2 {
   margin-right: 18px;
 }
 
-.CVV {
+.cvv {
   margin-right: 20px;
   margin-left: 30px;
 }
@@ -173,4 +178,72 @@ h1, h2 {
 
 #billingzipcode {
   margin-right: 30px;
+}
+
+span.key {
+  display: inline;
+  float: left;
+  margin-left: 150px;
+}
+
+span.val {
+  display: inline-block;
+  text-align: right;
+}
+
+.s-name {
+  margin-left: 25px;
+}
+
+.s-email {
+  margin-left: 30px;
+}
+
+.s-password {
+  margin-left: 0px;
+  margin-right: 22px;
+}
+
+.s-street1 {
+  margin-left: 15px;
+}
+
+.s-street2 {
+  margin-left: 15px;
+}
+
+.s-city {
+  margin-left: 40px;
+}
+
+.s-state {
+  margin-left: 35px;
+}
+
+.s-zipcode {
+  margin-left: 5px;
+}
+
+.s-phonenumber {
+  margin-left: 0px;
+  margin-right: 60px;
+}
+
+.s-creditcard {
+  margin-left: 0px;
+  margin-right: 45px;
+}
+
+.s-expiry {
+  margin-left: 0px;
+  margin-right: 35px;
+}
+
+.s-cvv {
+  margin-left: 45px;
+}
+
+.s-billingzipcode {
+  margin-left: 0px;
+  margin-right: 65px;
 }

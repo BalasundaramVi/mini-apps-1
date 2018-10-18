@@ -84,9 +84,9 @@ var F3 = (props) => {
           <span className='expiry title'>Expiry Date:</span>
           <input type='text' id='expiry'></input>
         </div>
-        <div className ='CVV holder'>
-          <span className='CVV title'>CVV:</span>
-          <input type='text' id='CVV'></input>
+        <div className ='cvv holder'>
+          <span className='cvv title'>CVV:</span>
+          <input type='text' id='cvv'></input>
         </div>
         <div className ='billingzipcode holder'>
           <span className='billingzipcode title'>Billing Zip Code:</span>
@@ -98,10 +98,73 @@ var F3 = (props) => {
   )
 }
 
+var SummaryPage = ({name, email, password, street1, street2, city, state, zipcode, phonenumber, creditcard, expiry, cvv, billingzipcode}) => {
+  return(
+    <div id='summaryPage'>
+      <h1>Order Summary</h1>
+      <div className='inputs' id='summary'>
+        <div className ='summary sName'>
+          <span className='summary key t-name'>Name:</span>
+          <span className='summary val s-name'>{name}</span>
+        </div>
+        <div className ='summary sEmail'>
+          <span className='summary key t-email'>Email:</span>
+          <span className='summary val s-email'>{email}</span>
+        </div>
+        <div className ='summary sPassword'>
+          <span className='summary key t-password'>Password:</span>
+          <span className='summary val s-password'>{password}</span>
+        </div>
+        <div className ='summary sStreet1'>
+          <span className='summary key t-street1'>Street 1:</span>
+          <span className='summary val s-street1'>{street1}</span>
+        </div>
+        <div className ='summary sStreet2'>
+          <span className='summary key t-street2'>Street 2:</span>
+          <span className='summary val s-street2'>{street2}</span>
+        </div>
+        <div className ='summary sCity'>
+          <span className='summary key t-city'>City:</span>
+          <span className='summary val s-city'>{city}</span>
+        </div>
+        <div className ='summary sState'>
+          <span className='summary key t-state'>State:</span>
+          <span className='summary val s-state'>{state}</span>
+        </div>
+        <div className ='summary sZipcode'>
+          <span className='summary key t-zipcode'>Zip-Code:</span>
+          <span className='summary val s-zipcode'>{zipcode}</span>
+        </div>
+        <div className ='summary sPhonenumber'>
+          <span className='summary key t-phonenumber'>Phone Number:</span>
+          <span className='summary val s-phonenumber'>{phonenumber}</span>
+        </div>
+        <div className ='summary sCreditcard'>
+          <span className='summary key t-creditcard'>Credit Card #:</span>
+          <span className='summary val s-creditcard'>{creditcard}</span>
+        </div>
+        <div className ='summary sExpiry'>
+          <span className='summary key t-expiry'>Expiry Date:</span>
+          <span className='summary val s-expiry'>{expiry}</span>
+        </div>
+        <div className ='summary scvv'>
+          <span className='summary key t-cvv'>CVV:</span>
+          <span className='summary val s-cvv'>{cvv}</span>
+        </div>
+        <div className ='summary sBillingzipcode'>
+          <span className='summary key t-billingzipcode'>Billing Zip Code:</span>
+          <span className='summary val s-billingzipcode'>{billingzipcode}</span>
+        </div>
+      </div>
+      <h3 id='checkout' onClick={summaryNext}>Confirm</h3>
+    </div>
+  )
+}
+
 var SuccessPage = (props) => {
   return(
-    <div id='SuccessPage'>
-      <h1>SUCCESS!</h1>
+    <div id='successPage'>
+      <h1>SUCCES!</h1>
       <div className='inputs' id='success'>
         <h2>Your order has been placed!</h2>
       </div>
@@ -167,7 +230,7 @@ var F2Next = () => {
 var F3Next = () => {
   var card = document.getElementById('creditcard').value;
   var expiry = document.getElementById('expiry').value;
-  var CVV = document.getElementById('CVV').value;
+  var cvv = document.getElementById('cvv').value;
   var billingzipcode = document.getElementById('billingzipcode').value;
   fetch('/F3Next', {
     method: 'POST',
@@ -175,8 +238,40 @@ var F3Next = () => {
     body: JSON.stringify(
       { "card": card,
         "expiry": expiry,
-        "CVV": CVV,
+        "cvv": cvv,
         "billingzipcode": billingzipcode })
+  }).then((data) => {
+    return data.json();
+  }).then((res) => {
+    if (res === 'fail') {
+      console.log('error');
+      ReacttDOM.render(<Homepage />);
+    } else {
+      console.log(res);
+      ReactDOM.render(
+        <SummaryPage
+        name={res.name}
+        email={res.email}
+        password={res.password}
+        street1={res.street1}
+        street2={res.street2}
+        city={res.city}
+        state={res.state}
+        zipcode={res.zipcode}
+        phonenumber={res.phonenumber}
+        creditcard={res.creditcard}
+        expiry={res.expiry}
+        cvv={res.CVV}
+        billingzipcode={res.billingzipcode} />,
+        document.getElementById('app')
+      )
+    }
+  });
+}
+
+var summaryNext = () => {
+  fetch('/summaryNext', {
+    method: 'GET'
   }).then((res) => {
     ReactDOM.render(
       <SuccessPage />,
@@ -200,6 +295,6 @@ var successNext = () => {
 // RENDER THE APP TO THE DOM //////////////////////////
 
 ReactDOM.render(
-  <F3 />,
+  <Homepage />,
   document.getElementById('app')
-);
+)
