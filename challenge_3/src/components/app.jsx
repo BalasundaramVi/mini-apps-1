@@ -156,7 +156,7 @@ var SummaryPage = ({name, email, password, street1, street2, city, state, zipcod
           <span className='summary val s-billingzipcode'>{billingzipcode}</span>
         </div>
       </div>
-      <h3 id='checkout' onClick={summaryNext}>Confirm</h3>
+      <h3 id='checkout' onClick={summaryNext}>Confirm Purchase</h3>
     </div>
   )
 }
@@ -194,11 +194,21 @@ var F1Next = () => {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({"name": name, "email": email, "password": password})
-  }).then((res) => {
-    ReactDOM.render(
-      <F2 />,
-      document.getElementById('app')
-    )
+  }).then((data) => {
+    return data.json();
+  }).then(res => {
+    if (res === 'fail') {
+      alert('Please fill out all the forms!');
+      ReactDOM.render(
+        <F1 />,
+        document.getElementById('app')
+      )
+    } else {
+      ReactDOM.render(
+        <F2 />,
+        document.getElementById('app')
+      )
+    }
   });
 }
 
@@ -219,11 +229,19 @@ var F2Next = () => {
       "state": state,
       "zipcode": zipcode,
       "phonenumber": phonenumber })
-  }).then((res) => {
-    ReactDOM.render(
-      <F3 />,
-      document.getElementById('app')
-    )
+  }).then((data) => {
+    return data.json();
+  }).then(res => {
+    if (res === 'blank') {
+      alert('Please fill out all the forms!')
+    } else if (res === 'NaN') {
+      alert('Reminder that the Zip-Code and Phone Number must be numbers ONLY')
+    } else {
+      ReactDOM.render(
+        <F3 />,
+        document.getElementById('app')
+      )
+    }
   });
 }
 
@@ -244,8 +262,11 @@ var F3Next = () => {
     return data.json();
   }).then((res) => {
     if (res === 'fail') {
-      console.log('error');
-      ReacttDOM.render(<Homepage />);
+      console.log('error rendering the form!')
+    } else if (res === 'NaN') {
+      alert('Reminder that the all fields must contain numbers ONLY')
+    } else if (res === 'blank') {
+      alert('Please fill out all the forms!')
     } else {
       ReactDOM.render(
         <SummaryPage
