@@ -1,1 +1,5 @@
 public/app.js
+
+
+# IGNORE THE WEBPACK BUNDLE
+/client/dist/bundle.js

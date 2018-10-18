@@ -1,0 +1,34 @@
+{
+  "name": "challenge_4",
+  "version": "1.0.0",
+  "description": "Connect Four",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "build": "webpack -d --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BalasundaramVi/hrsf105-mini-apps-1.git"
+  },
+  "keywords": [
+    "Connect",
+    "Four",
+    "Game"
+  ],
+  "author": "Vignesh Balasundaram",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BalasundaramVi/hrsf105-mini-apps-1/issues"
+  },
+  "homepage": "https://github.com/BalasundaramVi/hrsf105-mini-apps-1#readme",
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "webpack": "^4.21.0",
+    "webpack-cli": "^3.1.2"
+  }
+}
