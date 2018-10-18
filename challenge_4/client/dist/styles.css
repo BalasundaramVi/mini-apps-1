@@ -43,17 +43,28 @@ ol {
 
 .outerBox {
   border: 2px solid black;
+  padding: 5px;
   display: inline-block;
   width: fit-content;
+  background-color: rgba(101, 67, 33, 0.4);
 }
 
 .col {
   color: rgba(255, 255, 255, 0);
-  width: 55px;
-  height: 55px;
+  background-color: rgb(230, 221, 210);
+  width: 45px;
+  height: 45px;
   border: 1px solid black;
   border-radius: 50%;
   padding: 15px;
   margin: 0px;
   border: 1px solid black;
+}
+
+.black {
+  background-color: black;
+}
+
+.red {
+  background-color: red;
 }

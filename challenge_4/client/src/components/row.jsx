@@ -5,8 +5,8 @@ var Row = (props) => {
     <div className= {`row ${props.curRow}`}>
       {props.rows.map((slot, i) => {
         return (
-          <div className='outerBox'>
-            <div key={`${i}`} className={`col ${i}`} id={`col_${i}`}>{slot}</div>
+          <div key={i} className='outerBox'>
+            <div key={`${i}`} row={props.curRow} col={i} className={`col ${i} ${slot}`} id={`col_${i}`}>{slot}</div>
           </div>
         )
       })}
