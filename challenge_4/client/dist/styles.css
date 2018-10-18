@@ -5,3 +5,55 @@ html {
 p {
   margin: 0px;
 }
+
+ol {
+  padding: 0px;
+}
+
+.app {
+  width: fit-content;
+  margin: auto;
+  margin-top: 15px;
+  padding: 20px;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.columnSelection {
+  margin-top: 50px;
+  margin-bottom: 25px;
+}
+
+.drop {
+  width: 50px;
+  margin: 13px;
+  padding: 15px;
+  border: 1px dotted red;
+  border-radius: 50%;
+  background-color: rgba(255, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+.drop:hover {
+  background-color: rgba(255, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.outerBox {
+  border: 2px solid black;
+  display: inline-block;
+  width: fit-content;
+}
+
+.col {
+  color: rgba(255, 255, 255, 0);
+  width: 55px;
+  height: 55px;
+  border: 1px solid black;
+  border-radius: 50%;
+  padding: 15px;
+  margin: 0px;
+  border: 1px solid black;
+}
