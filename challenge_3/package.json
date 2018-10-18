@@ -26,7 +26,8 @@
     "babel-plugin-react": "^1.0.0",
     "babel-preset-react": "^6.24.1",
     "mongodb": "^3.1.8",
-    "mongoose": "^5.3.4"
+    "mongoose": "^5.3.4",
+    "nightwatch": "^0.9.21"
   },
   "dependencies": {
     "body-parser": "^1.18.3",

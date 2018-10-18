@@ -66,7 +66,6 @@ app.get('/homepageNext', (req, res) => {
 })
 
 app.post('/F1Next', (req, res) => {
-  console.log(req.body);
   if (req.body.name === '' || req.body.password === '' || req.body.email === '') {
     res.send(JSON.stringify('fail'));
   } else {
@@ -80,7 +79,6 @@ app.post('/F1Next', (req, res) => {
 })
 
 app.post('/F2Next', (req, res) => {
-  console.log(typeof req.body.zipcode);
   if (req.body.street1 === '' || req.body.city === '' || req.body.state === '' || req.body.zipcode === '' || req.body.phonenumber === '') {
     res.send(JSON.stringify('blank'))
   } else if ((isNaN(req.body.zipcode)) || (isNaN(req.body.phonenumber))) {
@@ -111,7 +109,6 @@ app.post('/F3Next', (req, res) => {
         console.log(err);
         res.send(JSON.stringify('fail'));
       } else {
-        console.log(checkout);
         res.send(checkout);
       }
     })
