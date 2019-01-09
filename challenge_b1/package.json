@@ -1,0 +1,50 @@
+{
+  "name": "challenge_b1",
+  "version": "1.0.0",
+  "description": "Checkers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./server/server.js",
+    "build": "webpack -d --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BalasundaramVi/hrsf105-mini-apps-1.git"
+  },
+  "keywords": [
+    "Checkers"
+  ],
+  "author": "Vignesh Balasundaram",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BalasundaramVi/hrsf105-mini-apps-1/issues"
+  },
+  "homepage": "https://github.com/BalasundaramVi/hrsf105-mini-apps-1#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "path": "^0.12.7",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.12.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.12.3",
+    "nodemon": "^1.18.9",
+    "webpack": "^4.28.1",
+    "webpack-cli": "^3.2.1"
+  }
+}

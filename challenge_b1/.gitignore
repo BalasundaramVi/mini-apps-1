@@ -1,0 +1,5 @@
+# NODE MODULES
+node_modules
+
+# Webpack Bundle
+client/public/cb1_bundle.js
