@@ -1,5 +1,6 @@
 .inner-row {
   width: fit-content;
+  height: 104px;
   margin: auto;
 }
 
@@ -21,4 +22,42 @@
 
 img {
   margin: auto;
+}
+
+.piece {
+  padding: 5%;
+  width: 90%;
+  height: 90%;
+}
+
+.white_circle {
+  padding: 1%;
+  width: 98%;
+  height: 98%;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.red_circle {
+  padding: 1%;
+  width: 98%;
+  height: 98%;
+  border-radius: 50%;
+  background-color: crimson;
+  border: 1px solid black;
+}
+
+.red_circle:hover {
+  padding: 0;
+  border: 2px solid crimson;
+  background-color: gold;
+  cursor: pointer;
+}
+
+.white_circle:hover {
+  padding: 0;
+  border: 2px solid white;
+  background-color: gold;
+  cursor: pointer;
 }

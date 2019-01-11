@@ -1,6 +1,5 @@
 import React from 'react';
 
-import RED_PIECE from '../../assets/red_piece.png';
 import '../styles/Row.css';
 
 const Row = ({ row }) => (
@@ -8,11 +7,23 @@ const Row = ({ row }) => (
     {row.map((square, i) => {
       let piece;
       if (square.piece === 'red') {
-        piece = <div className="red piece">RED</div>;
+        piece = (
+          <div className="red piece">
+            <div className="red_circle" />
+          </div>
+        );
       } else if (square.piece === 'white') {
-        piece = <div>WHITE</div>
+        piece = (
+          <div className="white piece">
+            <div className="white_circle" />
+          </div>
+        );
       } else {
-        piece = <div>NULL</div>;
+        piece = (
+          <div className="empty piece">
+            <div className="empty_circle" />
+          </div>
+        );
       }
 
       return (
