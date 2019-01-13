@@ -3,7 +3,7 @@ import React from 'react';
 import KING from '../../assets/King.png';
 import '../styles/Row.css';
 
-const Row = ({ row, pieceMovement, rowNum }) => (
+const Row = ({ row, pieceMovement, rowNum, movePiece }) => (
   <div className="inner-row">
     {row.map((square, i) => {
       let piece;
@@ -28,7 +28,7 @@ const Row = ({ row, pieceMovement, rowNum }) => (
       } else if (square.piece === 'grey') {
         piece = (
           <div className="grey piece">
-            <div className="grey_circle">
+            <div className="grey_circle" onClick={() => movePiece(rowNum, i)}>
               {square.king ? king : <div className="not-king" />}
             </div>
           </div>
