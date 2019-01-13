@@ -3,9 +3,16 @@ const createBoard = () => {
   for (let i = 0; i < 8; i += 1) {
     const row = [];
     for (let j = 0; j < 8; j += 1) {
+      let tile;
+      if ((i + j) % 2 === 1) {
+        tile = 'dark';
+      } else {
+        tile = 'light';
+      }
       row.push({
         piece: null,
         king: false,
+        tile,
       });
     }
     board.push(row);

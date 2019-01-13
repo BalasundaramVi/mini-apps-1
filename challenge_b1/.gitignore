@@ -3,3 +3,6 @@ node_modules
 
 # Webpack Bundle
 client/public/cb1_bundle.js
+
+# NEW PHOTOS IN PUBLIC FOLDER
+/client/public/*.png
