@@ -15,6 +15,7 @@ const createBoard = () => {
         tile,
         selected: false,
         moveOption: null,
+        takePiece: null,
       });
     }
     board.push(row);
