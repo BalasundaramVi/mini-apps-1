@@ -13,6 +13,7 @@ const createBoard = () => {
         piece: null,
         king: false,
         tile,
+        selected: false,
       });
     }
     board.push(row);

@@ -48,14 +48,14 @@ img {
   border: 1px solid black;
 }
 
-.red_circle:hover {
+.red_circle:hover, .red-selected {
   padding: 0;
   border: 2px solid crimson;
   background-color: gold;
   cursor: pointer;
 }
 
-.white_circle:hover {
+.white_circle:hover, .white-selected {
   padding: 0;
   border: 2px solid white;
   background-color: gold;
@@ -74,3 +74,18 @@ img {
   padding-top: 15px;
 }
 
+.grey_circle {
+  padding: 1%;
+  width: 98%;
+  height: 98%;
+  border-radius: 50%;
+  background-color: silver;
+  border: 1px solid black;
+}
+
+.grey_circle:hover {
+  padding: 0;
+  border: 2px solid gold;
+  background-color: silver;
+  cursor: pointer;
+}
