@@ -10,14 +10,19 @@ class App extends React.Component {
 
     this.state = {
       board: createBoard(),
+      curPlayer: 'red',
     };
 
     this.piecePositioning = this.piecePositioning.bind(this);
   }
 
   piecePositioning(row, col) {
-    const { board } = this.state;
+    const { board, curPlayer } = this.state;
     const piece = board[row][col];
+    if (piece.piece !== curPlayer) {
+      return;
+    }
+
     for (let i = 0; i < board.length; i++) {
       for (let j = 0; j < board[i].length; j++) {
         if (board[i][j].piece === 'grey') {
@@ -28,6 +33,7 @@ class App extends React.Component {
         }
       }
     }
+
     piece.selected = true;
 
     if (piece.piece === 'red') {
@@ -39,8 +45,17 @@ class App extends React.Component {
           board[row - 1][col - 1].piece = 'grey';
         }
       }
+    } else if (piece.piece === 'white') {
+      if (row < board.length - 1) {
+        if (col < board.length - 1 && board[row + 1][col + 1].piece === null) {
+          board[row + 1][col + 1].piece = 'grey';
+        }
+        if (col > 0 && board[row + 1][col - 1].piece === null) {
+          board[row + 1][col - 1].piece = 'grey';
+        }
+      }
     }
-
+    debugger;
     this.setState(board);
   }
 
