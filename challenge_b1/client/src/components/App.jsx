@@ -55,6 +55,22 @@ class App extends React.Component {
           };
         }
       }
+      if (row < board.length - 1 && piece.king === true) {
+        if (col < board.length - 1 && board[row + 1][col + 1].piece === null) {
+          board[row + 1][col + 1].piece = 'grey';
+          board[row + 1][col + 1].moveOption = {
+            row,
+            col,
+          };
+        }
+        if (col > 0 && board[row + 1][col - 1].piece === null) {
+          board[row + 1][col - 1].piece = 'grey';
+          board[row + 1][col - 1].moveOption = {
+            row,
+            col,
+          };
+        }
+      }
     } else if (piece.piece === 'white') {
       if (row < board.length - 1) {
         if (col < board.length - 1 && board[row + 1][col + 1].piece === null) {
@@ -63,11 +79,26 @@ class App extends React.Component {
             row,
             col,
           };
-
         }
         if (col > 0 && board[row + 1][col - 1].piece === null) {
           board[row + 1][col - 1].piece = 'grey';
           board[row + 1][col - 1].moveOption = {
+            row,
+            col,
+          };
+        }
+      }
+      if (row >= 1 && piece.king === true) {
+        if (col < board.length - 1 && board[row - 1][col + 1].piece === null) {
+          board[row - 1][col + 1].piece = 'grey';
+          board[row - 1][col + 1].moveOption = {
+            row,
+            col,
+          };
+        }
+        if (col > 0 && board[row - 1][col - 1].piece === null) {
+          board[row - 1][col - 1].piece = 'grey';
+          board[row - 1][col - 1].moveOption = {
             row,
             col,
           };
@@ -100,6 +131,11 @@ class App extends React.Component {
 
     board[row][col].piece = curPlayer;
     board[row][col].king = board[moveOption.row][moveOption.col].king;
+    if (curPlayer === 'red' && row === 0) {
+      board[row][col].king = true;
+    } else if (curPlayer === 'white' && row === board.length - 1) {
+      board[row][col].king = true;
+    }
     board[moveOption.row][moveOption.col].piece = null;
     board[moveOption.row][moveOption.col].king = false;
 
