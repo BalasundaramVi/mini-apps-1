@@ -11,6 +11,11 @@ class App extends React.Component {
     this.state = {
       board: createBoard(),
       curPlayer: 'red',
+      gameOver: false,
+      piecesLeft: {
+        red: 12,
+        white: 12,
+      },
     };
 
     this.piecePositioning = this.piecePositioning.bind(this);
@@ -194,7 +199,7 @@ class App extends React.Component {
           board[row - 2][col + 2].takePiece = {
             row: (row - 1),
             col: (col + 1),
-          }
+          };
         }
 
         if (col > 1 && board[row - 1][col - 1].piece === 'red' && board[row - 2][col - 2].piece === null) {
@@ -206,7 +211,7 @@ class App extends React.Component {
           board[row - 2][col - 2].takePiece = {
             row: (row - 1),
             col: (col - 1),
-          }
+          };
         }
       }
     }
@@ -216,7 +221,7 @@ class App extends React.Component {
 
   movePiece(row, col) {
     const { board } = this.state;
-    let { curPlayer } = this.state;
+    let { curPlayer, piecesLeft, gameOver } = this.state;
     const piece = board[row][col];
     const { moveOption, takePiece } = piece;
     if (piece.moveOption === null) {
@@ -247,6 +252,11 @@ class App extends React.Component {
 
     let check = true;
     if (takePiece !== null) {
+      const color = board[takePiece.row][takePiece.col].piece;
+      piecesLeft[color] -= 1;
+      if (piecesLeft[color] === 0) {
+        gameOver = true;
+      }
       board[takePiece.row][takePiece.col].piece = null;
       check = false;
     }
@@ -259,7 +269,12 @@ class App extends React.Component {
       }
     }
 
-    this.setState({ board, curPlayer });
+    this.setState({
+      board,
+      curPlayer,
+      piecesLeft,
+      gameOver,
+    });
   }
 
   render() {
