@@ -6,3 +6,47 @@ h1, h3 {
   margin: 5px 0px;
   text-align: center;
 }
+
+.header {
+  width: 90%;
+  margin: 5px auto;
+  max-width: 850px;
+}
+
+.checkers-blurb {
+  display: inline-block;
+  width: 70%;
+}
+
+.game-details {
+  display: inline-block;
+  width: 25%;
+}
+
+.pieces-label {
+  font-size: 1.25em;
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+}
+
+.pieces-count {
+  font-size: 1.5em;
+  float: right;
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+}
+
+.red-player, .white-player {
+  margin: 2px;
+  padding: 5px;
+}
+
+.current-player {
+  border: 2px solid red;
+  border-radius: 5px;
+  margin: 0px;
+}
+
+.gameOver-blurb {
+  margin: 5px;
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+  text-align: center;
+}

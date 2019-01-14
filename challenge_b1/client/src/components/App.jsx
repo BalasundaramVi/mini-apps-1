@@ -220,8 +220,8 @@ class App extends React.Component {
   }
 
   movePiece(row, col) {
-    const { board } = this.state;
-    let { curPlayer, piecesLeft, gameOver } = this.state;
+    const { board, piecesLeft } = this.state;
+    let { curPlayer, gameOver } = this.state;
     const piece = board[row][col];
     const { moveOption, takePiece } = piece;
     if (piece.moveOption === null) {
@@ -278,12 +278,50 @@ class App extends React.Component {
   }
 
   render() {
-    const { board } = this.state;
+    const { board, gameOver, piecesLeft, curPlayer } = this.state;
+    let details;
+    if (gameOver) {
+      if (piecesLeft.red === 0) {
+        details = (
+          <div className="game-over">
+            <h2 className="gameOver-blurb">GAME OVER</h2>
+            <h2 className="gameOver-blurb">WHITE WINS !!</h2>
+          </div>
+        );
+      } else if(piecesLeft.white === 0) {
+        details = (
+          <div className="game-over">
+            <h2 className="gameOver-blurb">GAME OVER</h2>
+            <h2 className="gameOver-blurb">RED WINS !!</h2>
+          </div>
+        );
+      }
+    } else {
+      details = (
+        <div className="ongoing-game info">
+          <div className={`red-player ${curPlayer === 'red' ? 'current-player' : ''}`}>
+            <span className="pieces-label red-label">RED PIECES : </span>
+            <span className="pieces-count red-count">{piecesLeft.red}</span>
+          </div>
+          <div className={`white-player ${curPlayer === 'white' ? 'current-player' : ''}`}>
+            <span className="pieces-label white-label">WHITE PIECES : </span>
+            <span className="pieces-count white-count">{piecesLeft.white}</span>
+          </div>
+        </div>
+      );
+    }
+
+
     return (
       <div className="application">
         <div className="header">
-          <h1 className="header-title">CHECKERS</h1>
-          <h3 className="header-description">{'One of the world\'s oldest games - also known as draughts'}</h3>
+          <div className="checkers-blurb">
+            <h1 className="header-title">CHECKERS</h1>
+            <h3 className="header-description">{'One of the world\'s oldest games - also known as draughts'}</h3>
+          </div>
+          <div className="game-details">
+            {details}
+          </div>
         </div>
         <Board board={board} pieceMovement={this.piecePositioning} movePiece={this.movePiece} />
       </div>
